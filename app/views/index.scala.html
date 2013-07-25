@@ -1,0 +1,19 @@
+@(stardate: Stardate)
+
+@layout("Stardate Now") {
+    <h1>@stardate</h1>
+
+    <code id="json-result"></code>
+    <a href="#" id="get-json">get json</a>
+
+    <script lang="text/javascript">
+        $(document).ready(function() {
+           $('#get-json').click(function() {
+                $.getJSON('http://0.0.0.0:9000/now',
+                    function (data, textStatus, jqXHR) {
+                        $('#json-result').text(data.stardate);
+                    });
+            });
+        });
+    </script>
+}
