@@ -1,17 +1,34 @@
 @(stardate: Stardate)
 
 @layout("Stardate Now") {
-    <h1>@stardate</h1>
 
-    <code id="json-result"></code>
-    <a href="#" id="get-json">get json</a>
+    <div class="page-header">
+        <h1>@stardate</h1>
+    </div>
+    <div id="standard-date-container">
+        <span id="month">@stardate.month</span>
+        <span id="day">@stardate.day</span>
+    </div>
+
+    <div id="json-container" class="well">
+        <code id="json-result"></code>
+    </div>
+    <button id="get-json" class="btn btn-primary">get json</button>
+
+    <!-- TODO
+       1. Add description for the JSON requests supported
+       2. Add the other JSON request too
+       3. Add websocket slider for choosing time frequency push/pull
+            D, H, M, S?
+    -->
 
     <script lang="text/javascript">
         $(document).ready(function() {
            $('#get-json').click(function() {
                 $.getJSON('http://0.0.0.0:9000/now',
                     function (data, textStatus, jqXHR) {
-                        $('#json-result').text(data.stardate);
+                        $('#json-container').show();
+                        $('#json-result').text(JSON.stringify(data));
                     });
             });
         });
