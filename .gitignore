@@ -13,3 +13,9 @@ dist
 /.project
 /RUNNING_PID
 /.settings
+/.DS_Store
+/.cache
+/.target
+bin/
+public/.DS_Store
+public/javascripts/.DS_Store
