@@ -9,7 +9,7 @@ object ApplicationBuild extends Build {
 
   val appDependencies = Seq(
     "joda-time" % "joda-time" % "2.2",
-    "com.typesafe.slick" % "slick" % "1.0.1"
+    "com.typesafe.slick" % "slick_2.10" % "1.0.1"
   )
 
 
